@@ -1,5 +1,6 @@
 import { Navigation } from "./Navigation";
 
+// 1. Adding id and aria-labelledby
 export const Header = () => {
   return (
     <div className="w-full bg-purple-700 text-white">

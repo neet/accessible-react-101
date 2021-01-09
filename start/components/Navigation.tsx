@@ -22,6 +22,7 @@ type NavigationProps = {
   items: ItemProps[];
 };
 
+// 1. Use UL and LI
 export const Navigation = ({ items }: NavigationProps) => {
   return (
     <div className="flex items-center space-x-8">
