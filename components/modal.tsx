@@ -55,10 +55,18 @@ export const Modal = ({
     const app = document.getElementById('app');
     if (app == null) return;
 
+    const handleKeydown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        onClose();
+      };
+    };
+
     app.setAttribute('aria-hidden', 'true');
+    document.addEventListener('keydown', handleKeydown);
 
     return () => {
       app.removeAttribute('aria-hidden');
+      document.removeEventListener('keydown', handleKeydown);
     };
   });
 
