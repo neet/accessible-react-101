@@ -25,7 +25,7 @@ export const ProfileButton = () => {
       <button
         ref={ref}
         aria-labelledby="show-profile"
-        className="text-white bg-purple-700 py-0.5 px-2 shadow rounded text-bold box-border"
+        className="text-white bg-purple-700 py-0.5 px-2 shadow rounded text-bold box-border focus:outline-none focus:ring-2 focus:ring-purple-300"
         onClick={() => void setOpen(true)}
       >
         <span id="show-profile" className="sr-only">

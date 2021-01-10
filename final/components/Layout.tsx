@@ -30,7 +30,7 @@ export const Layout = (props: LayoutProps) => {
 
       <main
         id="main"
-        className="max-w-screen-md mx-auto"
+        className="max-w-screen-md mx-auto p-2"
         ref={main}
         tabIndex={-1}
         aria-label={title}
