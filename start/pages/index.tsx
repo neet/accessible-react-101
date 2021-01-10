@@ -19,8 +19,6 @@ export default function Home() {
             <ProfileButton />
           </div>
         </div>
-
-        <Form />
       </div>
     </div>
   );

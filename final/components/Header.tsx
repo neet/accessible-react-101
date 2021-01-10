@@ -1,13 +1,11 @@
 import { Navigation } from "./Navigation";
 
+// 1. Adding id and aria-labelledby
 export const Header = () => {
   return (
-    <header className="w-full bg-purple-700 text-white" aria-labelledby="header-title">
+    <header className="w-full shadow border-t-4 border-purple-700">
       <div className="flex justify-between align-center max-w-screen-md mx-auto py-2">
-        <h1
-          id="header-title"
-          className="flex-grow font-bold text-2xl leading-tight"
-        >
+        <h1 className="flex-grow font-bold text-2xl leading-tight text-purple-800">
           Portfolio
         </h1>
 
