@@ -1,0 +1,47 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "extends": [
+    "eslint:recommended"
+    // , "plugin:jsx-a11y/recommended"
+  ],
+  "env": {
+    "browser": true,
+    "node": true,
+    "jest": true
+  },
+  "plugins": [],
+  "parserOptions": {
+    "ecmaVersion": 9,
+    "sourceType": "module"
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "rules": {
+    "no-console": "error",
+    "eqeqeq": ["error", "always", { "null": "ignore" }],
+    "jsx-a11y/anchor-is-valid": "off",
+    "react/display-name": "off",
+    "react/prop-types": "off",
+    "react/react-in-jsx-scope": "off"
+  },
+  "overrides": [
+    {
+      "files": ["**/*.{ts,tsx}"],
+      "extends": [
+        "plugin:@typescript-eslint/eslint-recommended"
+        // "plugin:@typescript-eslint/all",
+        // "plugin:import/typescript",
+        // "prettier/@typescript-eslint"
+      ],
+      "parserOptions": {
+        "project": "./tsconfig.json"
+      },
+      "rules": {
+        "@typescript-eslint/no-type-alias": "off"
+      }
+    }
+  ]
+}
