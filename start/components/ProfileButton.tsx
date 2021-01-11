@@ -16,12 +16,12 @@ export const ProfileButton = () => {
         </Modal>
       )}
 
-      <button
+      <div
         className="text-white bg-purple-700 py-0.5 px-2 shadow rounded text-bold box-border"
         onClick={() => void setOpen(true)}
       >
         <FontAwesomeIcon icon={faEllipsisH} />
-      </button>
+      </div>
     </>
   );
 };
