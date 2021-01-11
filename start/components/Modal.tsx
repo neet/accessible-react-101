@@ -23,7 +23,7 @@ const Window = ({
         <h2 className="text-2xl font-bold">{title}</h2>
       </header>
 
-      <p>{children}</p>
+      <div>{children}</div>
     </div>
   );
 };
