@@ -1,10 +1,5 @@
 npx create-next-app accessible-react-101
 
-yarn add \
-  autoprefixer \
-  postcss \
-  tailwindcss \
-  @types/react \
-  typescript
+yarn add next typescript react tailwind
 
 touch tsconfig.json
