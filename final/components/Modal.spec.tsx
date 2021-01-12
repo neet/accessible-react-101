@@ -1,37 +1,16 @@
-import "@testing-library/jest-dom/extend-expect";
-import { fireEvent, render, screen, waitFor } from "@testing-library/react";
+import '@testing-library/jest-dom/extend-expect';
+import { fireEvent, render, screen } from "@testing-library/react";
 import { Modal } from "./Modal";
 
-describe("Modal", () => {
-  let app: Element;
-
-  beforeAll(() => {
-    app = document.createElement('div');
-    app.setAttribute('id', 'app');
-    document.body.appendChild(app);
-  })
-
-  it("is accessible", async () => {
+describe('Modal', () => {
+  test('is accessible', () => {
     const handleClose = jest.fn();
-
-    const { unmount } = render(
-      <Modal title="タイトル" onClose={handleClose}>
-        こんにちは
-      </Modal>
-    );
+    render(<Modal title="タイトル" onClose={handleClose}>本文</Modal>);
 
     expect(screen.getByText('タイトル')).toHaveFocus();
-    expect(screen.getByText('こんにちは')).toBeVisible();
-    expect(app).toHaveAttribute('aria-hidden', 'true');
+    expect(screen.getByText('本文')).toBeVisible();
 
-    fireEvent.keyDown(screen.getByRole('dialog'), { key: 'Escape' });
+    fireEvent.click(screen.getByText('閉じる'));
     expect(handleClose).toBeCalled();
-
-    unmount();
-
-    await waitFor(() => {
-      expect(screen.queryByRole('dialog')).toBeNull();
-      expect(app).not.toHaveAttribute('aria-hidden', 'true');
-    });
   });
 });

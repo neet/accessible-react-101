@@ -1,6 +1,6 @@
 import { faEllipsisH } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useCallback, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { Modal } from "./Modal";
 
 // 1. label
@@ -9,29 +9,29 @@ export const ProfileButton = () => {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLButtonElement | null>(null);
 
-  const handleClose = useCallback((): void => {
+  const handleClose = () => {
     setOpen(false);
     ref.current?.focus();
-  }, [])
+  }
 
   return (
     <>
       {open && (
-        <Modal title="私のプロフィール" onClose={handleClose}>
-          プロフィールです
+        <Modal title="私のスキル" onClose={handleClose}>
+          <ul className="list-disc list-inside">
+            <li>React</li>
+            <li>Next.js</li>
+            <li>Tailwind CSS</li>
+          </ul>
         </Modal>
       )}
 
       <button
+        className="text-white bg-purple-700 py-0.5 px-2 shadow rounded text-bold box-border w-min"
+        aria-label="スキルを表示する"
         ref={ref}
-        aria-labelledby="show-profile"
-        className="text-white bg-purple-700 py-0.5 px-2 shadow rounded text-bold box-border focus:outline-none focus:ring-2 focus:ring-purple-300"
         onClick={() => void setOpen(true)}
       >
-        <span id="show-profile" className="sr-only">
-          プロフィールを開く
-        </span>
-
         <FontAwesomeIcon icon={faEllipsisH} />
       </button>
     </>
