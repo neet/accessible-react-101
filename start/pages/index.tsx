@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Layout } from "../components/Layout";
 import { ProfileButton } from "../components/ProfileButton";
 
@@ -11,10 +12,16 @@ export default function Home() {
 
         <div>
           <span className="leading-tight font-semibold text-3xl">ボブ</span>
-          <span className="text-gray-500">Webエンジニア・デザイナー</span>
+          <div className="text-gray-500">Webエンジニア・デザイナー</div>
           <ProfileButton />
         </div>
       </div>
+
+      <p>私のポートフォリオへようこそ</p>
+
+      <Link href="/blog">
+        <a className="text-purple-500 underline">記事の一覧</a>
+      </Link>
     </Layout>
   );
 }

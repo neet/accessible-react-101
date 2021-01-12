@@ -1,16 +1,6 @@
 import { PropsWithChildren } from "react";
 import { createPortal } from "react-dom";
 
-// 1. aria
-const Backdrop = ({ onClick }: { readonly onClick: () => void }) => {
-  return (
-    <div
-      onClick={onClick}
-      className="absolute top-0 left-0 bg-black opacity-75 w-full h-full"
-    />
-  );
-};
-
 // 1. aria, roles
 // 2. focus management
 const Window = ({
@@ -18,20 +8,20 @@ const Window = ({
   children,
 }: PropsWithChildren<{ readonly title: string }>) => {
   return (
-    <div className="absolute p-2 box-border inset-0 m-auto w-1/2 h-1/2 bg-white shadow-lg rounded-lg">
-      <header>
+    <div className="flex flex-col absolute p-2 box-border inset-0 m-auto w-1/2 h-1/2 bg-white shadow-lg rounded-lg">
+      <header aria-label="ウィンドウのタイトル">
         <h2 className="text-2xl font-bold">{title}</h2>
       </header>
 
-      <div>{children}</div>
+      <div className="flex flex-col flex-grow">{children}</div>
     </div>
   );
 };
 
 const Footer = ({ onClose }: { readonly onClose: () => void }) => {
   return (
-    <footer>
-      <button className="text-purple-500" onClick={onClose}>
+    <footer aria-label="ウィンドウのツールバー">
+      <button className="bg-purple-700 text-white px-2 py-1 rounded shadow" onClick={onClose}>
         閉じる
       </button>
     </footer>
@@ -51,10 +41,12 @@ export const Modal = ({
   onClose,
 }: PropsWithChildren<ModalProps>) => {
   return createPortal(
-    <div className="absolute w-full h-full top-0 left-0">
-      <Backdrop onClick={onClose} />
+    <div
+      onClick={onClose}
+      className="absolute top-0 left-0 bg-opacity-75 bg-black w-full h-full"
+    >
       <Window title={title}>
-        {children}
+        <div className="flex-grow">{children}</div>
         <Footer onClose={onClose} />
       </Window>
     </div>,

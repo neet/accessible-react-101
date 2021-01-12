@@ -11,7 +11,7 @@ const Item = ({ name, href }: ItemProps) => {
 
   return (
     <Link href={href}>
-      <a className={`h-min font-bold ${router.pathname === href ? "text-lime-500" : "text-gray-400"}`}>
+      <a className={`h-min ${router.pathname === href ? "text-purple-500 font-bold" : "text-gray-600"}`}>
         {name}
       </a>
     </Link>
