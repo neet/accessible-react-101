@@ -8,7 +8,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   const handleRouteChange = useCallback(() => {
     const main = document.getElementById('main');
-    main?.focus();
+    main?.focus({ preventScroll: true });
   }, []);
 
   useEffect(() => {

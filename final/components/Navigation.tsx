@@ -25,10 +25,18 @@ type NavigationProps = {
 // 1. Use UL and LI
 export const Navigation = ({ items }: NavigationProps) => {
   return (
-    <div className="flex items-center space-x-8">
-      {items.map((item, i) => (
-        <Item key={`${item.name}-${i}`} {...item} />
-      ))}
-    </div>
+    <nav aria-labelledby="nav-title">
+      <h2 id="nav-title" className="sr-only">
+        主要なページ
+      </h2>
+      
+      <ul className="flex items-center space-x-8">
+        {items.map((item, i) => (
+          <li key={`${item.name}-${i}`}>
+            <Item {...item} />
+          </li>
+        ))}
+      </ul>
+    </nav>
   );
 };
