@@ -14,6 +14,7 @@ export default function Blog() {
       <div role="feed" className="divide-y divide-gray-300">
         {Array.from({ length: 3 }, (_, i) => i).map((i, _, a) => (
           <article
+            key={`article-${i}`}
             aria-posinset={i}
             aria-setsize={a.length}
             className="py-4"
