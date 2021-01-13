@@ -41,10 +41,7 @@ export const Modal = ({
   onClose,
 }: PropsWithChildren<ModalProps>) => {
   return createPortal(
-    <div
-      onClick={onClose}
-      className="absolute top-0 left-0 bg-opacity-75 bg-black w-full h-full"
-    >
+    <div className="absolute top-0 left-0 bg-opacity-75 bg-black w-full h-full">
       <Window title={title}>
         <div className="flex-grow">{children}</div>
         <Footer onClose={onClose} />
