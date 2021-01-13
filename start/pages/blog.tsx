@@ -12,7 +12,7 @@ export default function Blog() {
       </Link>
 
       <div role="feed" className="divide-y divide-gray-300">
-        {Array.from({ length: 5 }, (_, i) => i).map((i, _, a) => (
+        {Array.from({ length: 3 }, (_, i) => i).map((i, _, a) => (
           <article
             aria-posinset={i}
             aria-setsize={a.length}
